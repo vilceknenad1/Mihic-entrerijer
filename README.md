@@ -1,62 +1,47 @@
-# Enterijer Mihić — sajt
+# Enterijer Mihić — sajt (prilagođen sa EN-DIZAJN predloška)
 
-Statičan, jednostrani sajt bez zavisnosti (HTML + CSS + vanilla JS). Može da se hostuje bilo gde: Netlify, Vercel, Cloudflare Pages, GitHub Pages ili običan hosting — dovoljno je postaviti sadržaj ovog foldera.
+Statički sajt: ista struktura, hero, animacije i dizajn kao [en-dizajn037](https://vilceknenad1.github.io/en-dizajn037/), sa tekstovima i fotografijama Enterijer Mihić.
 
-```
-index.html              sadržaj i struktura stranice
-assets/css/main.css     dizajn sistem (boje, tipografija, grid, animacije)
-assets/js/config.js     ⟵ PODEŠAVANJA ZA POKRETANJE (kontakt, obrazac)
-assets/js/main.js       navigacija, galerija, lightbox, obrazac
-assets/img/             slike (WebP u više veličina) + og-image.jpg
-robots.txt, sitemap.xml SEO datoteke (zameniti DOMEN)
-tools/build.py          priprema slika i pregled u jednom fajlu
+Predpregled lokalno:
+
+```bash
+python3 -m http.server 8080 --directory .
 ```
 
-## Pre objavljivanja — šta je potrebno dostaviti
+Zatim otvorite http://localhost:8080/
 
-Ništa od navedenog nije izmišljeno na sajtu; dok podatak ne unesete, odgovarajući red se ne prikazuje.
+## Objavljivanje na GitHub Pages
 
-| # | Šta | Gde se unosi |
-|---|-----|--------------|
-| 1 | **Adresa za prijem upita** (npr. Formspree, Basin, Getform ili sopstveni API koji prima `multipart/form-data` i vraća 2xx) | `config.js` → `formEndpoint` |
-| 2 | Da li servis prima priložene fajlove (Formspree: samo plaćeni paketi) | `config.js` → `acceptsFiles` |
-| 3 | Broj telefona: uneto (+381 65 911 4646) | `config.js` → `phone` |
-| 4 | E-mail adresa | `config.js` → `email` |
-| 5 | Instagram profil (pun URL) | `config.js` → `instagram` |
-| 6 | Politika privatnosti (stranica ili PDF) | `config.js` → `privacyPolicyUrl` |
-| 7 | Produkcijski domen: trenutno https://vilceknenad1.github.io/Mihic-entrerijer/ (ako pređete na sopstveni domen, zamenite adresu) | `index.html` (canonical, odkomentarisati), `og:image` kao apsolutni URL, `robots.txt`, `sitemap.xml` |
-| 8 | Prave fotografije realizovanih projekata (kada postoje) | `assets/img/` + `index.html`, sekcija `#nasi-radovi` |
+1. Napravite novi repozitorijum (npr. `enterijer-mihic`).
+2. „uploading an existing file“ → prevucite **sav sadržaj** raspakovanog foldera (ne sam folder), uključujući `.nojekyll`.
+   Na macOS-u skrivene fajlove u Finderu prikazujete sa Cmd + Shift + .
+3. Commit changes.
+4. Settings → Pages → Build and deployment → Source: **Deploy from a branch** → Branch: **main**, folder **/ (root)** → Save.
+5. Posle 1–2 minuta sajt je na `https://korisnik.github.io/enterijer-mihic/`.
 
-**Obrazac:** dok `formEndpoint` nije popunjen, obrazac proverava unos, ali posetiocu jasno kaže da slanje još nije aktivno — nikad ne prikazuje lažnu potvrdu i ne odbacuje poruke tiho. Potvrda „upit je primljen" prikazuje se samo kada server odgovori uspešno. Zaštita od spama: skriveno polje (honeypot) + minimalno vreme popunjavanja; za dodatnu zaštitu uključite spam filter u izabranom servisu.
+**Adresa:** `robots.txt` i `sitemap.xml` već imaju `https://vilceknenad1.github.io/Mihic-entrerijer/`. Ako repozitorijum nazovete drugačije, promenite adresu u oba fajla.
 
-Polja koja obrazac šalje: `name`, `phone`, `email`, `type`, `dimensions`, `message`, `files` (0–3 fajla, do 10 MB), `_subject`.
+**Sopstveni domen:** Settings → Pages → Custom domain, pa kod registrara dodajte DNS zapise koje GitHub prikaže. Uključite „Enforce HTTPS“. Posle toga upišite adresu u `robots.txt` i `sitemap.xml`.
 
-**LocalBusiness strukturirani podaci** nisu dodati namerno — dodajte ih tek kada su naziv, adresa/područje i kontakt verifikovani.
+**Napomene:**
+- `.nojekyll` mora da ostane u korenu.
+- `assets/img/logo.jpg` i `logo.png` sajt više ne koristi (zaglavlje ima naziv ispisan slovima). Obrišite ih pre otpremanja, pa folder ima 99 fajlova, ispod GitHub-ovog limita od 100 po jednom otpremanju.
+- Adrese bez `.html` rade (`/katalog`), kao i `katalog?model=plakar-hrast`.
+- `vercel.json` GitHub ignoriše. Može da ostane ako želite i Vercel kao rezervu.
 
-## Slike
+## Pre puštanja u javnost (otvorene stavke)
 
-Fotografije realizovanih radova (prefiks `r…` u `assets/img/`) preuzete su sa javnog Instagram profila @enterijer_mihic 20. 11. 2026. Spisak objava i datuma je u `tools/IZVOR-FOTOGRAFIJA.md`. Izmene su blage: ujednačen balans bele boje i kontrast, izoštravanje i isecanje nereda sa ivica kadra. Sam nameštaj nije retuširan.
+Sve što nije potvrđeno je na sajtu vidljivo označeno kao `[[PLACEHOLDER: …]]`:
+- email, adresa / grad, radno vreme, PIB/MB i pravni tekstovi;
+- da li je +381 65 911 4646 i na Viberu i na WhatsApp-u (oba dugmeta vode na taj broj);
+- cenovnik, rok izrade i montaže, dostava van Beograda, garancija, načini plaćanja;
+- paleta dekora i materijala;
+- vektorski logo za zaglavlje (sada je naziv ispisan slovima, Cormorant Garamond);
+- da li ostaje pravopis „Mihić“ ili „Mihic“ kao na Instagramu;
+- da li su dve fotografije stola-pregrade AI-sadržaj (Instagramov bedž je isečen);
+- opisi dve objave bez natpisa (manja kuhinja, tamni ormar);
+- servis za newsletter (forma je sada samo prikaz, ne šalje podatke — `assets/js/main.js`, TODO).
 
-Fotografije su na sajtu u sekcijama Nameštaj po meri, Naš pristup, Dostava i u galeriji Naši radovi. Vizualizacije su ostale u hero sekciji, u sekciji „Ne uklapajte život u nameštaj“ i kod krupnih planova materijala, i tamo su označene kao vizualizacije. Kada budu postojale profesionalne fotografije, mogu da zamene i njih.
+Telefon potvrđen od klijenta 20. 11. 2026: +381 65 911 4646.
 
-Nisu korišćeni: sto-pregrada (Instagram na tim slikama prikazuje oznaku „Sadržaj generisan uz pomoć AI“), objava sa TV programom na ekranu, ugao kupatila sa tuđim proizvodom na ormariću i nekoliko slabije osvetljenih snimaka.
-
-Nova fotografija se dodaje u galeriju tako što se kopira jedan `<figure class="g-item">`, pa se podese `data-cat` (`kuhinje`, `plakari`, `dnevne`, `spavace`, `ostalo`), `data-title`, `alt` i putanje. Filteri i brojači se ažuriraju sami.
-
-## Pristupačnost i performanse
-
-- Jedan H1, logična hijerarhija naslova, opisni `alt` tekstovi na srpskom.
-- Vidljiv fokus, „Preskoči na sadržaj", navigacija tastaturom (meni, galerija, lightbox: ← → Esc, zarobljen fokus).
-- `prefers-reduced-motion` gasi animacije; sav sadržaj je vidljiv i bez njih.
-- Responzivne WebP slike sa `srcset`, `width/height` (bez pomeranja rasporeda), lazy loading ispod prvog ekrana, hero se predučitava.
-- Fontovi: Cormorant Garamond + Manrope (Google Fonts, sa latin-ext za š, č, ć, ž, đ).
-
-## Animacije (motion sloj)
-
-`assets/js/fx.js` koristi GSAP 3.12.5 + ScrollTrigger (cdnjs) i Lenis 1.1.13 (jsDelivr) za glatko skrolovanje:
-uvodna animacija sa kotom 0 → 2400 mm, otkrivanje naslova slovo po slovo i reč po reč, slike koje se otvaraju i blago pomeraju pri skrolu,
-prikovana „signature" sekcija i proces izrade, marquee traka koja se pomera samo dok skrolujete, magnetna dugmad, kursor sa oznakom (samo miš), zrno filma.
-
-- Ako posetilac ima uključeno „smanji pokrete" ili se biblioteke ne učitaju, sloj se isključuje i sajt radi sa jednostavnim prikazom — sav sadržaj ostaje vidljiv.
-- Uvodna animacija traje oko 3 s i preskače se kada se stranica otvori dalje od vrha.
-- Za potpuno samostalan hosting biblioteke možete preuzeti u `assets/vendor/` i promeniti tri `<script src>` putanje na dnu `index.html`.
+Potvrđeno sa javnog profila @enterijer_mihic (20. 11. 2026.): nameštaj po meri, besplatna dostava za Beograd, besplatne konsultacije, izbor boja i materijala.
