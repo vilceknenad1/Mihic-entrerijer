@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adresa pretpostavlja repozitorijum enterijer-mihic na nalogu vilceknenad1 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=kuhinja-sank</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=kuhinja-beli-sjaj</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=tv-polica</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=sto-pregrada</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=plakar-hrast</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=plakar-led</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=potkrovlje</loc></url>
+  <url><loc>https://vilceknenad1.github.io/enterijer-mihic/katalog?model=cipelarnik</loc></url>
+</urlset>
