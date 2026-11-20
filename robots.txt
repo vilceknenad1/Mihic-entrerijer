@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vilceknenad1.github.io/Enterijer-Mihic/sitemap.xml
+Sitemap: https://vilceknenad1.github.io/Mihic-entrerijer/sitemap.xml

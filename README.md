@@ -24,7 +24,7 @@ Ništa od navedenog nije izmišljeno na sajtu; dok podatak ne unesete, odgovaraj
 | 4 | E-mail adresa | `config.js` → `email` |
 | 5 | Instagram profil (pun URL) | `config.js` → `instagram` |
 | 6 | Politika privatnosti (stranica ili PDF) | `config.js` → `privacyPolicyUrl` |
-| 7 | Produkcijski domen: trenutno https://vilceknenad1.github.io/Enterijer-Mihic/ (ako pređete na sopstveni domen, zamenite adresu) | `index.html` (canonical, odkomentarisati), `og:image` kao apsolutni URL, `robots.txt`, `sitemap.xml` |
+| 7 | Produkcijski domen: trenutno https://vilceknenad1.github.io/Mihic-entrerijer/ (ako pređete na sopstveni domen, zamenite adresu) | `index.html` (canonical, odkomentarisati), `og:image` kao apsolutni URL, `robots.txt`, `sitemap.xml` |
 | 8 | Prave fotografije realizovanih projekata (kada postoje) | `assets/img/` + `index.html`, sekcija `#nasi-radovi` |
 
 **Obrazac:** dok `formEndpoint` nije popunjen, obrazac proverava unos, ali posetiocu jasno kaže da slanje još nije aktivno — nikad ne prikazuje lažnu potvrdu i ne odbacuje poruke tiho. Potvrda „upit je primljen" prikazuje se samo kada server odgovori uspešno. Zaštita od spama: skriveno polje (honeypot) + minimalno vreme popunjavanja; za dodatnu zaštitu uključite spam filter u izabranom servisu.
