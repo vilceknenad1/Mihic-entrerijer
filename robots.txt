@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 # Ako repozitorijum dobije drugo ime ili sopstveni domen, promenite adresu ispod i u sitemap.xml
-Sitemap: https://vilceknenad1.github.io/enterijer-mihic/sitemap.xml
+Sitemap: https://vilceknenad1.github.io/Mihic-entrerijer/sitemap.xml

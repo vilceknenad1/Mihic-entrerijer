@@ -19,7 +19,7 @@ Zatim otvorite http://localhost:8080/
 4. Settings → Pages → Build and deployment → Source: **Deploy from a branch** → Branch: **main**, folder **/ (root)** → Save.
 5. Posle 1–2 minuta sajt je na `https://korisnik.github.io/enterijer-mihic/`.
 
-**Adresa:** `robots.txt` i `sitemap.xml` već imaju `https://vilceknenad1.github.io/enterijer-mihic/`. Ako repozitorijum nazovete drugačije, promenite adresu u oba fajla.
+**Adresa:** `robots.txt` i `sitemap.xml` već imaju `https://vilceknenad1.github.io/Mihic-entrerijer/`. Ako repozitorijum nazovete drugačije, promenite adresu u oba fajla.
 
 **Sopstveni domen:** Settings → Pages → Custom domain, pa kod registrara dodajte DNS zapise koje GitHub prikaže. Uključite „Enforce HTTPS“. Posle toga upišite adresu u `robots.txt` i `sitemap.xml`.
 

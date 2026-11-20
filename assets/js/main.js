@@ -137,3 +137,22 @@
   });
 
 })();
+
+/* Mobile: bottom contact bar shows after the hero and hides near the contact section, footer, or when the menu is open */
+(function () {
+  'use strict';
+  var bar = document.querySelector('[data-mbar]'); if (!bar || !('IntersectionObserver' in window)) return;
+  var hero = document.querySelector('.hd'), stops = document.querySelectorAll('#kontakt, footer');
+  var pastHero = !hero, nearStop = false;
+  function sync() {
+    var menuOpen = !!document.querySelector('.mpanel2.is-open');
+    bar.classList.toggle('is-on', pastHero && !nearStop && !menuOpen);
+  }
+  if (hero) new IntersectionObserver(function (es) { pastHero = !es[0].isIntersecting; sync(); }, { threshold: 0.25 }).observe(hero);
+  var vis = new Set();
+  var so = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) vis.add(e.target); else vis.delete(e.target); }); nearStop = vis.size > 0; sync(); });
+  stops.forEach(function (s) { so.observe(s); });
+  var b = document.querySelector('[data-burger]'); if (b) b.addEventListener('click', function () { setTimeout(sync, 0); });
+  document.querySelectorAll('[data-close]').forEach(function (a) { a.addEventListener('click', function () { setTimeout(sync, 0); }); });
+  sync();
+})();
